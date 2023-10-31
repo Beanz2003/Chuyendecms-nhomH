@@ -10,10 +10,47 @@
  */
 
 get_header();
+	?>
+	<div class="row">
+		<div class="col-md-3">
+	
 
+<div id="content"class="page">
+  <h1 class="titlepage" >Trang mới nhất</h1>
+  <hr class="gg">
+  <ul class="page-list">
+	  <?php
+	  $args = array(
+		  'post_type' => 'page', // Chỉ lấy các trang
+		  'posts_per_page' => -1 // Lấy tất cả trang
+	  );
+	  $query = new WP_Query($args);
+
+	  while ($query->have_posts()) : $query->the_post();
+	  ?>
+	  <li>
+		  <h2 class="pages"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		  <hr class="ww">	
+		  <?php
+		  if (has_post_thumbnail()) {
+			  the_post_thumbnail();
+		  }
+		  ?>
+		  <?php get_template_part( 'template-parts/excerpt/excerpt', get_post_format() ); ?>
+	  </li>
+	  <?php endwhile;
+	  wp_reset_postdata();
+	  ?>
+  </ul>
+
+</div>
+		</div>
+
+		<div class="col-md-6">
+	<?php		
 if ( have_posts() ) {
 	?>
-	<header class="page-header alignwide">
+		<header class="page-header alignwide">
 		<h1 class="page-title">
 			<?php
 			printf(
@@ -25,22 +62,6 @@ if ( have_posts() ) {
 		</h1>
 	</header><!-- .page-header -->
 
-	<div class="search-result-count default-max-width">
-		<?php
-		printf(
-			esc_html(
-				/* translators: %d: The number of search results. */
-				_n(
-					'We found %d result for your search.',
-					'We found %d results for your search.',
-					(int) $wp_query->found_posts,
-					'twentytwentyone'
-				)
-			),
-			(int) $wp_query->found_posts
-		);
-		?>
-	</div><!-- .search-result-count -->
 	<?php
 	// Start the Loop.
 	while ( have_posts() ) {
@@ -63,3 +84,10 @@ if ( have_posts() ) {
 }
 
 get_footer();
+?>
+		</div>
+		<div class="col-md-3">
+
+		</div>
+	</div>
+	

@@ -22,24 +22,37 @@ get_header(); ?>
 	</header><!-- .page-header -->
 <?php endif; ?>
 
-<?php
+<div class="row">
+<div class="col-md-3">
+
+</div>
+<div class="col-md-6">
+	<?php
 if ( have_posts() ) {
 
-	// Load posts loop.
-	while ( have_posts() ) {
-		the_post();
+// Load posts loop.
+while ( have_posts() ) {
+	the_post();
 
-		get_template_part( 'template-parts/content/content', get_theme_mod( 'display_excerpt_or_full_post', 'excerpt' ) );
-	}
+	get_template_part( 'template-parts/content/content', get_theme_mod( 'display_excerpt_or_full_post', 'excerpt' ) );
+}
 
-	// Previous/next page navigation.
-	twenty_twenty_one_the_posts_navigation();
+// Previous/next page navigation.
+twenty_twenty_one_the_posts_navigation();
 
 } else {
 
-	// If no content, include the "No posts found" template.
-	get_template_part( 'template-parts/content/content-none' );
+// If no content, include the "No posts found" template.
+get_template_part( 'template-parts/content/content-none' );
 
 }
 
 get_footer();
+?>
+</div>
+<div class="col-md-3">
+
+</div>
+</div>
+
+<?php
