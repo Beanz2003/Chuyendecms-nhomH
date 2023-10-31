@@ -141,7 +141,6 @@ function twenty_twenty_one_continue_reading_text() {
 
 	return $continue_reading;
 }
-
 /**
  * Creates the continue reading link for excerpt.
  *

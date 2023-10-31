@@ -79,7 +79,7 @@ section .section-title {
     margin-bottom: 10px;
 }
 }
-
+/* MODULE 2 */
 
 .top_news_block_desc {
     font-size: 0.9em !important;
@@ -87,7 +87,7 @@ section .section-title {
 }
 
 .top_news_block_desc .topnewstime {
-    margin-top: 12px !important;
+    margin-top: 8px !important;
     text-align: center !important;
 }
 
@@ -99,7 +99,6 @@ section .section-title {
     font-family: 'Prata', serif !important;
     font-size: 3.1em !important;
     line-height: 1em !important;
- 
 }
 .entry-header{
     margin: 0 !important;
@@ -112,10 +111,11 @@ section .section-title {
 .topnewstime > .topnewsmonth {
     text-transform: uppercase !important;
     font-size: 0.9em !important;
-    
+    color: #5f5e5e !important;
 }
 .topnewstime {
     margin: 0 !important;
+    
 }
 
 .top_news_block_desc h4 {
@@ -147,6 +147,7 @@ h4{
 }
 .entry-content{
     margin: 0 !important;
+
 }
 .site-main > *{
     margin: 0 !important;
@@ -155,13 +156,14 @@ h4{
     margin-bottom: 15px !important;
 
 }
+/*End MODULE 2 */
 
 
 .page-list li img {
-	width: 100px; /* Định kích thước chiều rộng của ảnh là 100px */
-	height: 100px; /* Định kích thước chiều cao của ảnh là 100px */
-	object-fit: cover; /* Hiển thị ảnh mà không bị méo */
-	margin-right: 10px; /* Khoảng cách phải giữa ảnh và nội dung */
+	width: 100px; 
+	height: 100px; 
+	object-fit: cover; 
+	margin-right: 10px; 
 }
 .pages{
 	font-size: 15px;
