@@ -26,37 +26,59 @@
 	<section id="footer">
 		<div class="container">
 			<div class="row text-center text-xs-center text-sm-left text-md-left">
-				<div class="col-xs-12 col-sm-4 col-md-4">
-					<h5>Quick links</h5>
-					<ul class="list-unstyled quick-links">
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
-					<h5>Quick links</h5>
-					<ul class="list-unstyled quick-links">
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
-					<h5>Quick links</h5>
-					<ul class="list-unstyled quick-links">
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-						<li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
-					</ul>
-				</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<h5>Recent Posts</h5>
+				<ul class="list-unstyled quick-links">
+					<?php
+					$args = array(
+						'posts_per_page' => 4, // Số bài viết bạn muốn hiển thị
+						'post_status' => 'publish', // Chỉ lấy các bài viết đã được xuất bản
+						'orderby' => 'date', // Sắp xếp theo ngày đăng
+						'order' => 'DESC', // Sắp xếp giảm dần
+					);
+
+					$recent_posts = get_posts($args);
+
+					foreach ($recent_posts as $post) {
+						setup_postdata($post);
+						$post_title = get_the_title();
+						$post_link = get_permalink();
+						?>
+						<li><a href="<?php echo $post_link; ?>"><i class="fa fa-angle-double-right"></i><?php echo $post_title; ?></a></li>
+						<?php
+					}
+
+					wp_reset_postdata();
+					?>
+				</ul>
 			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<h5>Recent Comments</h5>
+				<ul class="list-unstyled quick-links">
+					<?php
+					$args = array(
+						'number' => 4, // Số bình luận bạn muốn hiển thị
+						'status' => 'approve', // Chỉ lấy các bình luận đã được phê duyệt
+						'orderby' => 'comment_date', // Sắp xếp theo ngày bình luận
+						'order' => 'DESC', // Sắp xếp giảm dần
+					);
+
+					$recent_comments = get_comments($args);
+
+					foreach ($recent_comments as $comment) {
+						$comment_content = $comment->comment_content;
+						$comment_author = $comment->comment_author;
+						$comment_post = get_post($comment->comment_post_ID);
+						$comment_post_title = $comment_post->post_title;
+						$comment_post_link = get_permalink($comment->comment_post_ID);
+						?>
+						<li><a href="<?php echo $comment_post_link; ?>"><i class="fa fa-angle-double-right"></i><?php echo $comment_content; ?> - <?php echo $comment_author; ?> on "<?php echo $comment_post_title; ?>"</a></li>
+						<?php
+					}
+					?>
+				</ul>
+			</div>
+		</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
 					<ul class="list-unstyled list-inline social text-center">
