@@ -143,6 +143,7 @@ h4{
 .entry{
     background-color: #ffffff;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
 }
 .entry-content{
     margin: 0 !important;
@@ -153,4 +154,54 @@ h4{
 .list-new-view{
     margin-bottom: 15px !important;
 
+}
+
+
+.page-list li img {
+	width: 100px; /* Định kích thước chiều rộng của ảnh là 100px */
+	height: 100px; /* Định kích thước chiều cao của ảnh là 100px */
+	object-fit: cover; /* Hiển thị ảnh mà không bị méo */
+	margin-right: 10px; /* Khoảng cách phải giữa ảnh và nội dung */
+}
+.pages{
+	font-size: 15px;
+	color: #000;
+}
+.pages a {
+	color: #000;
+}
+.titlepage {
+	font-size: 25px;
+	color: #21759b;
+	
+}
+ .ww {
+	border-color: #999eab;
+    margin: 0;
+    border-width: 2px;
+    width: 45px;
+    margin-bottom: 10px;
+}
+#content.page{
+	background: #ffffff;
+	height: auto;
+}
+.gg{
+	border-color: #999eab;
+  
+}
+.page-list li {
+	list-style-type: none;
+}
+
+
+.image-post{
+	object-fit: cover !important;
+}
+img{
+	object-fit: cover !important;
+}
+.list-post{
+	background-color: white !important;
+	margin: -40px !important;
 }
