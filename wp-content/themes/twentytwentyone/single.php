@@ -11,6 +11,15 @@
 
 get_header();
 
+$args = array(
+	'post_type'      => 'post',
+	'post_status'    => 'publish',
+	'posts_per_page' => -1,
+	'orderby'        => 'date',
+	'order'          => 'DESC',
+	'post__not_in'   => array( get_the_ID() ), // Exclude current post
+);
+
 /* Start the Loop */
 while ( have_posts() ) :
 	the_post();
@@ -32,19 +41,42 @@ while ( have_posts() ) :
 		comments_template();
 	}
 
-	// Previous/next post navigation.
-	$twentytwentyone_next = is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' );
-	$twentytwentyone_prev = is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' );
+	$query = new WP_Query( $args );
 
-	$twentytwentyone_next_label     = esc_html__( 'Next post', 'twentytwentyone' );
-	$twentytwentyone_previous_label = esc_html__( 'Previous post', 'twentytwentyone' );
+	if ( $query->have_posts() ) {
+		echo '<ul class="custom-news-list alignwide">';
+		while ( $query->have_posts() ) {
+			$query->the_post();
 
-	the_post_navigation(
-		array(
-			'next_text' => '<p class="meta-nav">' . $twentytwentyone_next_label . $twentytwentyone_next . '</p><p class="post-title">%title</p>',
-			'prev_text' => '<p class="meta-nav">' . $twentytwentyone_prev . $twentytwentyone_previous_label . '</p><p class="post-title">%title</p>',
-		)
-	);
+			$post_day = get_the_date( 'd' );
+			$post_month = get_the_date( 'm' );
+			$post_year = get_the_date( 'y' );
+
+			$post_title = get_the_title();
+			$post_link = get_permalink();
+
+			$news_item = '
+				<li class="custom-news-item">
+					<div class="custom-post-date custom-background-none">
+						<div class="custom-date-month">
+							<span class="date">' . $post_day . '</span>
+							<span class="month">' . $post_month . '</span>
+						</div>
+						<div class="custom-year">
+							<span class="year">' . $post_year . '</span>
+						</div>
+					</div>
+					<a href="' . $post_link . '" class="custom-post-link">' . $post_title . '</a>
+				</li>
+			';
+
+			echo $news_item;
+		}
+		echo '</ul>';
+
+		// Restore the global post data
+		wp_reset_postdata();
+	}
 endwhile; // End of the loop.
 
 get_footer();

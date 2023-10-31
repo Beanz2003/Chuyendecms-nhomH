@@ -53,7 +53,7 @@ if ( have_posts() ) {
 		 */
 		get_template_part( 'template-parts/content/content-excerpt', get_post_format() );
 	} // End the loop.
-	
+
 	// Previous/next page navigation.
 	twenty_twenty_one_the_posts_navigation();
 
