@@ -78,6 +78,32 @@
 					?>
 				</ul>
 			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<h5>Recent Posts</h5>
+				<ul class="list-unstyled quick-links">
+					<?php
+					$args = array(
+						'posts_per_page' => 4, // Số bài viết bạn muốn hiển thị
+						'post_status' => 'publish', // Chỉ lấy các bài viết đã được xuất bản
+						'orderby' => 'date', // Sắp xếp theo ngày đăng
+						'order' => 'DESC', // Sắp xếp giảm dần
+					);
+
+					$recent_posts = get_posts($args);
+
+					foreach ($recent_posts as $post) {
+						setup_postdata($post);
+						$post_title = get_the_title();
+						$post_link = get_permalink();
+						?>
+						<li><a href="<?php echo $post_link; ?>"><i class="fa fa-angle-double-right"></i><?php echo $post_title; ?></a></li>
+						<?php
+					}
+
+					wp_reset_postdata();
+					?>
+				</ul>
+			</div>
 		</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
