@@ -40,5 +40,6 @@
 	<?php if ( ! is_singular( 'attachment' ) ) : ?>
 		<?php get_template_part( 'template-parts/post/author-bio' ); ?>
 	<?php endif; ?>
+	<!-- aaa -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
