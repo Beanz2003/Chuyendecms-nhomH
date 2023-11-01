@@ -5888,3 +5888,129 @@ footer {
 .is-IE .post-thumbnail .wp-post-image {
 	min-width: auto;
 }
+/* comment 8 */
+.form-control{
+	display: block !important;
+    color: #495057 !important;
+    background-color: #fff !important;
+    background-clip: padding-box !important;
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem !important;
+	
+	
+}
+.card-body {
+    -webkit-box-flex: 1 !important;
+    -ms-flex: 1 1 auto !important;
+    flex: 1 1 auto !important;
+    padding: 1.25rem !important;
+}
+.nav-tabs .nav-link {
+	margin-left: 4.5px !important;
+	margin-top: 4px !important;
+	
+}
+
+.btn-primary {
+    color: #fff !important;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+
+/*chỉnh sao cho tiêu đề không tràn ra ngoài*/
+.post-title {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+img{
+	object-fit: cover !important;
+}
+/* vỡ ảnh*/
+
+
+.post-thumbnail {
+
+    max-width: 100% !important;
+    height: auto !important;
+}
+.row{
+	margin-top: 15px !important;
+}
+/* so 14*/
+.comment-box {
+    margin-top: 30px !important;
+}
+
+.comment-box img {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.comment-box .media-left {
+    padding-right: 10px !important;
+    width: 65px !important;
+}
+
+.comment-box .media-body p {
+    border: 1px solid #ddd !important;
+    padding: 10px !important;
+}
+
+.comment-box .media-body .media p {
+    margin-bottom: 0 !important;
+}
+
+.comment-box .media-heading {
+    background-color: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+    padding: 7px 10px !important;
+    position: relative !important;
+    margin-bottom: -1px !important;
+}
+
+.comment-box .media-heading:before {
+    content: "" !important;
+    width: 12px !important;
+    height: 12px !important;
+    background-color: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+    border-width: 1px 0 0 1px !important;
+    transform: rotate(-45deg) !important;
+    position: absolute !important;
+    top: 10px !important;
+    left: -6px!important;
+}
+.display-none {
+	display: none !important;
+}
+
+/* 5 */
+.image-post{
+	object-fit: cover !important;
+}
+img{
+	object-fit: cover !important;
+}
+.list-post{
+	background-color: white !important;
+	margin: -40px !important;
+}
+/* chỉnh chữ với tháng*/
+.top_news_block_desc .topnewstime {
+    margin-top: 3px !important;
+    text-align: center !important;
+}
+/*đưa ra giữa */
+#comments {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	max-width: 800px !important; /* Thay đổi giá trị theo ý muốn */
+	width: 100% !important;
+  }
+  /*chỉnh ảnh sát góc phần tư thứ nhất */
+  .image-post
+  {
+	margin-top: -45px !important;
+	margin-left: -15px !important;
+  }
+  
