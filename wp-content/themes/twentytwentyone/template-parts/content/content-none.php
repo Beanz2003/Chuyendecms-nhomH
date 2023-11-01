@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying a message that posts cannot be found
  *
@@ -11,56 +12,119 @@
 
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header alignwide">
-		<?php if ( is_search() ) : ?>
+<!DOCTYPE html>
+<html lang="en">
 
-			<h1 class="page-title">
-				<?php
-				printf(
-					/* translators: %s: Search term. */
-					esc_html__( 'Results for "%s"', 'twentytwentyone' ),
-					'<span class="page-description search-term">' . esc_html( get_search_query() ) . '</span>'
-				);
-				?>
-			</h1>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://kit.fontawesome.com/cbeaa37f05.js" crossorigin="anonymous"></script>
+	<style>
+.form-control-borderless {
+    border: none;
+}
 
-		<?php else : ?>
+.form-control-borderless:hover,
+.form-control-borderless:active,
+.form-control-borderless:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
 
-			<h1 class="page-title"><?php esc_html_e( 'Nothing here', 'twentytwentyone' ); ?></h1>
+.form-control-borderless {
+    border: none !important;
+}
 
-		<?php endif; ?>
-	</header><!-- .page-header -->
+.submit-search {
+    background: #28a745 !important;
+    color: #fff !important;
+}
 
-	<div class="page-content default-max-width">
+.submit-search:hover {
+    background-color: #1e7e34 !important;
+}
 
-		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+.search-one {
+    height: 200px;
+}
 
-			<?php
-			printf(
-				'<p>' . wp_kses(
-					/* translators: %s: Link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'twentytwentyone' ),
-					array(
-						'a' => array(
-							'href' => array(),
-						),
-					)
-				) . '</p>',
-				esc_url( admin_url( 'post-new.php' ) )
-			);
-			?>
+.search-one p {
+    text-align: center;
+    transform: translateY(40px);
+}
 
-		<?php elseif ( is_search() ) : ?>
+.search-one div {
+    transform: translateY(30px);
+    justify-content: center;
+}
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'twentytwentyone' ); ?></p>
-			<?php get_search_form(); ?>
+@media (min-width: 768px) {
+    .search-two {
+        background-color: #f5efdf !important;
+        padding: 30px 0px 50px 0px;
+    }
+}
+	</style>
+</head>
 
-		<?php else : ?>
+<body>
+<div class="row">
+<div class="col-md-3">
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwentyone' ); ?></p>
-			<?php get_search_form(); ?>
+</div>
+<div class="col-md-6 list-new-view">
+<div class="container">
+		<br />
+		<div class="search-one">
+			<div style="display: flex;" class="h4-total">
+				<h4 style="color: #cb2952">Search:</h4>
+				<h4><?php
+					printf(
+						/* translators: %s: Search term. */
+						esc_html__(' "%s"', 'twentytwentyone'),
+						'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
+					);
+					?></h4>
+			</div>
 
-		<?php endif; ?>
-	</div><!-- .page-content -->
-</section><!-- .no-results -->
+			<p>We could not find any results for your search. You can give it </p>
+			<p>another try through the search form below.</p>
+		</div>
+		<div class="search-two">
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-10 col-lg-8">
+					<form class="card card-sm">
+						<div class="card-body row no-gutters align-items-center">
+							<div class="col-auto">
+								<i class="fas fa-search h4 text-body"></i>
+							</div>
+							<!--end of col-->
+							<div class="col">
+								<input name="s" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
+							</div>
+							<!--end of col-->
+							<div class="col-auto">
+								<button class="btn btn-lg btn-success submit-search" type="submit">Search</button>
+							</div>
+							<!--end of col-->
+						</div>
+					</form>
+				</div>
+				<!--end of col-->
+			</div>
+		</div>
+
+	</div>
+</div>
+<div class="col-md-3">
+
+</div>
+
+</div>
+</body>
+
+</html>

@@ -17,8 +17,9 @@
 <div class="col-md-6 list-new-view">
 <article id="post-<?php the_ID(); ?>" <?php post_class();?>>
 <div class="row top_news_block_desc">
-
-	<?php					
+	
+	<?php		
+			
 	$post = get_post();					
 	$date = $post->post_date;					
 	$day = date("j", strtotime($date));					
